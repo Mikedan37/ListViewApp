@@ -13,6 +13,7 @@ class MyDetailViewController: UIViewController {
     @IBOutlet var foodpic: UIImageView!
     @IBOutlet var restaurantdis: UITextView!
     
+    var MyDetail : ListObject!
     
     var foodnamelblText : String!
     var foodpicImg: UIImage!
@@ -21,27 +22,16 @@ class MyDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.foodnamelbl.text = self.foodnamelblText
-       self.foodpic.image = self.foodpicImg
-       self.restaurantdis.text = self.restaurantdisText
+        self.foodnamelbl.text = self.MyDetail.rname
+        self.foodpic.image = self.MyDetail.rimage
+        self.restaurantdis.text = self.restaurantdisText
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

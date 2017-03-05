@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C07907C1E44371500C7551E /* MyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07907B1E44371500C7551E /* MyDetailViewController.swift */; };
 		7C42D3981E441A020089F75F /* FoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */; };
+		7C430ABE1E6BA4F10076425B /* ListObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C430ABD1E6BA4F10076425B /* ListObject.swift */; };
 		7C802EDD1E42F6C300407515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C802EDC1E42F6C300407515 /* AppDelegate.swift */; };
 		7C802EE21E42F6C300407515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C802EE01E42F6C300407515 /* Main.storyboard */; };
 		7C802EE41E42F6C300407515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C802EE31E42F6C300407515 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		7C07907B1E44371500C7551E /* MyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDetailViewController.swift; sourceTree = "<group>"; };
 		7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListTableViewCell.swift; sourceTree = "<group>"; };
+		7C430ABD1E6BA4F10076425B /* ListObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListObject.swift; sourceTree = "<group>"; };
 		7C802ED91E42F6C300407515 /* ListViewApp_MichaelDanylchuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListViewApp_MichaelDanylchuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C802EDC1E42F6C300407515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C802EE11E42F6C300407515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				7C802EDC1E42F6C300407515 /* AppDelegate.swift */,
+				7C430ABD1E6BA4F10076425B /* ListObject.swift */,
 				7C802EE01E42F6C300407515 /* Main.storyboard */,
 				7C07907B1E44371500C7551E /* MyDetailViewController.swift */,
 				7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */,
@@ -145,6 +148,7 @@
 			files = (
 				7C42D3981E441A020089F75F /* FoodListTableViewCell.swift in Sources */,
 				7C802EDD1E42F6C300407515 /* AppDelegate.swift in Sources */,
+				7C430ABE1E6BA4F10076425B /* ListObject.swift in Sources */,
 				7C802EEF1E42F86500407515 /* FoodListTableView.swift in Sources */,
 				7C07907C1E44371500C7551E /* MyDetailViewController.swift in Sources */,
 			);
