@@ -27,7 +27,7 @@
 		7C802EE31E42F6C300407515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C802EE61E42F6C300407515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C802EE81E42F6C300407515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C802EEE1E42F86500407515 /* FoodListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListTableView.swift; sourceTree = "<group>"; };
+		7C802EEE1E42F86500407515 /* FoodListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodListTableView.swift; path = ../FoodListTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,6 @@
 		7C802ED01E42F6C300407515 = {
 			isa = PBXGroup;
 			children = (
-				7C802EEE1E42F86500407515 /* FoodListTableView.swift */,
 				7C802EDB1E42F6C300407515 /* ListViewApp_MichaelDanylchuk */,
 				7C802EDA1E42F6C300407515 /* Products */,
 			);
@@ -61,6 +60,7 @@
 		7C802EDB1E42F6C300407515 /* ListViewApp_MichaelDanylchuk */ = {
 			isa = PBXGroup;
 			children = (
+				7C802EEE1E42F86500407515 /* FoodListTableView.swift */,
 				7C802EDC1E42F6C300407515 /* AppDelegate.swift */,
 				7C430ABD1E6BA4F10076425B /* ListObject.swift */,
 				7C802EE01E42F6C300407515 /* Main.storyboard */,

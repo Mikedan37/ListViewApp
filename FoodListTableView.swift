@@ -13,25 +13,25 @@ import CoreData
 class FoodListTableView: UITableViewController, UISearchResultsUpdating {
     
     var myList = [
-        ListObject(rname: "Adega",rimage: #imageLiteral(resourceName: "Adega"))
-        ,ListObject(rname: "Cascal" , rimage: #imageLiteral(resourceName: "cascal") )
-        ,ListObject(rname: "Chatpatta Corner", rimage: #imageLiteral(resourceName: "chatpattaCorner") )
-        ,ListObject(rname: "Chef Chus", rimage: #imageLiteral(resourceName: "ChefChu"))
-        ,ListObject(rname: "Cheesecake Factory", rimage: #imageLiteral(resourceName: "Cheesecake Factory"))
-        ,ListObject(rname: "Chipotle", rimage: #imageLiteral(resourceName: "Chipotle"))
-        ,ListObject(rname: "Ciceros", rimage: #imageLiteral(resourceName: "cicerospizzalogo"))
-        ,ListObject(rname: "Craftman & Wolves", rimage: #imageLiteral(resourceName: "Craftman&Wolves"))
-        ,ListObject(rname: "De Afghanan", rimage: #imageLiteral(resourceName: "DeAfghanan"))
-        ,ListObject(rname: "DishDash", rimage: #imageLiteral(resourceName: "DishDash"))
-        ,ListObject(rname: "Eureka", rimage: #imageLiteral(resourceName: "eureka_logo"))
-        ,ListObject(rname: "Falafel Stop", rimage: #imageLiteral(resourceName: "FalafelStop"))
-        ,ListObject(rname: "Gayles", rimage: #imageLiteral(resourceName: "Gayles"))
-        ,ListObject(rname: "Kula", rimage: #imageLiteral(resourceName: "Kula"))
-        ,ListObject(rname: "Oren's Humus", rimage: #imageLiteral(resourceName: "oren's humus"))
-        ,ListObject(rname: "Shadow Brook", rimage: #imageLiteral(resourceName: "shadowbrook"))
-        ,ListObject(rname: "TajCafe", rimage: #imageLiteral(resourceName: "TajCafe"))
-        ,ListObject(rname: "Tayyibaat Meat & Grill", rimage: #imageLiteral(resourceName: "tayyibaatmeatandgrill"))
-        ,ListObject(rname: "Whole Foods", rimage: #imageLiteral(resourceName: "WholeFoods"))
+         ListObject(letter: "A" ,rname: "Adega",rimage: #imageLiteral(resourceName: "Adega"),check: false)
+        ,ListObject(letter: "C",rname: "Cascal" , rimage: #imageLiteral(resourceName: "cascal"),check: false)
+        ,ListObject(letter: "C",rname: "Chatpatta Corner", rimage: #imageLiteral(resourceName: "chatpattaCorner"),check: false)
+        ,ListObject(letter: "C",rname: "Chef Chus", rimage: #imageLiteral(resourceName: "ChefChu"),check: false)
+        ,ListObject(letter: "C",rname: "Cheesecake Factory", rimage: #imageLiteral(resourceName: "Cheesecake Factory"),check: false)
+        ,ListObject(letter: "C",rname: "Chipotle", rimage: #imageLiteral(resourceName: "Chipotle"),check: false)
+        ,ListObject(letter: "C",rname: "Ciceros", rimage: #imageLiteral(resourceName: "cicerospizzalogo"),check: false)
+        ,ListObject(letter: "C",rname: "Craftman & Wolves", rimage: #imageLiteral(resourceName: "Craftman&Wolves"),check: false)
+        ,ListObject(letter: "D",rname: "De Afghanan", rimage: #imageLiteral(resourceName: "DeAfghanan"),check: false)
+        ,ListObject(letter: "D",rname: "DishDash", rimage: #imageLiteral(resourceName: "DishDash"),check: false)
+        ,ListObject(letter: "E",rname: "Eureka", rimage: #imageLiteral(resourceName: "eureka_logo"),check: false)
+        ,ListObject(letter: "F",rname: "Falafel Stop", rimage: #imageLiteral(resourceName: "FalafelStop"),check: false)
+        ,ListObject(letter: "G",rname: "Gayles", rimage: #imageLiteral(resourceName: "Gayles"),check: false)
+        ,ListObject(letter: "K",rname: "Kula", rimage: #imageLiteral(resourceName: "Kula"), check: false)
+        ,ListObject(letter: "O",rname: "Oren's Humus", rimage: #imageLiteral(resourceName: "oren's humus"), check: false)
+        ,ListObject(letter: "S",rname: "Shadow Brook", rimage: #imageLiteral(resourceName: "shadowbrook"),check: false)
+        ,ListObject(letter: "T",rname: "TajCafe", rimage: #imageLiteral(resourceName: "TajCafe"),check: false)
+        ,ListObject(letter: "T",rname: "Tayyibaat Meat & Grill", rimage: #imageLiteral(resourceName: "tayyibaatmeatandgrill"),check: false)
+        ,ListObject(letter: "W",rname: "Whole Foods", rimage: #imageLiteral(resourceName: "WholeFoods"),check: false)
     ]
     var listDict = [String: [String]]()
     var listSectionTitles = [String]()
@@ -54,7 +54,7 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
 //        CreateListDict()
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.sizeToFit()
-        self.searchController.hidesNavigationBarDuringPresentation = false;
+        self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.tableView.tableHeaderView = self.searchController.searchBar

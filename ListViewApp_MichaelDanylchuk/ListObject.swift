@@ -13,11 +13,15 @@ import CoreData
 class ListObject: NSObject {
     var rname = " "
     var rimage = UIImage(named: "")
-        
-    init(rname: String,rimage: UIImage )
+    var letter = " "
+    var check = Bool()
+    
+    init( letter: String,rname: String,rimage: UIImage, check: Bool)
     {
+        self.letter = letter
         self.rname = rname
         self.rimage = rimage
-        
+        self.check = check
+       
     }
 }
