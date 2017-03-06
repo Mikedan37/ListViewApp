@@ -33,6 +33,7 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
         ,ListObject(letter: "T",rname: "Tayyibaat Meat & Grill", rimage: #imageLiteral(resourceName: "tayyibaatmeatandgrill"),check: false)
         ,ListObject(letter: "W",rname: "Whole Foods", rimage: #imageLiteral(resourceName: "WholeFoods"),check: false)
     ]
+    var names = "Soumya & Michaels App"
  var alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     
     
@@ -43,9 +44,9 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
     
     
     // Hides Status Bar for prettyness
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
+//    override var prefersStatusBarHidden: Bool{
+//        return true
+//    }
 //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
 //        
 //            
@@ -57,7 +58,7 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
 
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.sizeToFit()
-        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.hidesNavigationBarDuringPresentation = false;
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.tableView.tableHeaderView = self.searchController.searchBar
@@ -82,6 +83,12 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
      //Tells us how many rows there are
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return myList.count
+        if searchController.isActive{
+            return searchResults.count
+        }
+        else{
+            return myList.count
+        }
     }
     
     // Tells us whats put in each row
@@ -90,7 +97,7 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifier, for: indexPath) as! FoodListTableViewCell
         
         
-        var cellItem : ListObject
+        var cellItem: ListObject
         if searchController.isActive{
             cellItem = searchResults[indexPath.row]
         }
@@ -135,13 +142,14 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating {
                 detailVC.MyDetail = searchController.isActive ?
                     searchResults[indexPath.row] : myList[indexPath.row]
 //                detailVC.restaurantdisText = fooddiscription[indexPath.row]
+                detailVC.namesText = names
                 
             }
         }
     }
     func filterContentForSearchText(searchText: String) {
-        searchResults = myList.filter({ (myList : ListObject) -> Bool in
-            let nameMatch = myList.rname.range(of: searchText, options: String.CompareOptions.caseInsensitive)
+        searchResults = myList.filter({ (listItem : ListObject) -> Bool in
+            let nameMatch = listItem.rname.range(of: searchText, options: String.CompareOptions.caseInsensitive)
             return nameMatch != nil
    })
 }

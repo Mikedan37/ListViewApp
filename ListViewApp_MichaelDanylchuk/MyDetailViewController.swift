@@ -12,20 +12,21 @@ class MyDetailViewController: UIViewController {
     @IBOutlet var foodnamelbl: UILabel!
     @IBOutlet var foodpic: UIImageView!
     @IBOutlet var restaurantdis: UITextView!
+    @IBOutlet var names: UILabel!
     
     var MyDetail : ListObject!
     
     var foodnamelblText : String!
     var foodpicImg: UIImage!
     var restaurantdisText: String!
-    var restaurantaddressText: String!
+    var namesText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.foodnamelbl.text = self.MyDetail.rname
         self.foodpic.image = self.MyDetail.rimage
         self.restaurantdis.text = self.restaurantdisText
-        
+        self.names.text = namesText
         // Do any additional setup after loading the view.
     }
     
