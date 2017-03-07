@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MyDetailViewController: UIViewController {
     @IBOutlet var foodnamelbl: UILabel!
@@ -14,7 +15,7 @@ class MyDetailViewController: UIViewController {
     @IBOutlet var restaurantdis: UITextView!
     @IBOutlet var names: UILabel!
     
-    var MyDetail : ListObject!
+    var MyDetail : ListObjectMO!
     
     var foodnamelblText : String!
     var foodpicImg: UIImage!
@@ -24,10 +25,22 @@ class MyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.foodnamelbl.text = self.MyDetail.rname
-        self.foodpic.image = self.MyDetail.rimage
+        self.foodpic.image = UIImage(data: self.MyDetail.rimage as! Data)
         self.restaurantdis.text = self.restaurantdisText
         self.names.text = namesText
-        // Do any additional setup after loading the view.
+        
+        foodpic?.layer.cornerRadius = foodpic.frame.size.width/4.0
+        foodpic?.clipsToBounds = true
+        foodpic?.layer.masksToBounds = true
+        self.foodpic? = foodpic
+        restaurantdis.alpha = 0
+        UIView.animate(withDuration: 2, animations: {self.restaurantdis.alpha = 1 })
+        var rotationTransform : CATransform3D = CATransform3DIdentity
+        rotationTransform = CATransform3DTranslate(rotationTransform, -250,-250,0)
+        foodpic?.layer.transform = rotationTransform
+        UIView.animate(withDuration: 1, animations: {
+            self.foodpic?.layer.transform = CATransform3DIdentity        // Do any additional setup after loading the view.
+        })
     }
     
     override func didReceiveMemoryWarning() {
