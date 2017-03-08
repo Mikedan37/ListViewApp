@@ -12,7 +12,7 @@ import CoreData
 class FoodListTableViewCell: UITableViewCell {
     
     // Name of thr variable that will display pics with specific dimensions
-    @IBOutlet var restaurantpic: UIImageView!
+    @IBOutlet var restaurantpic: UIImageView?
     // Name of variable that will display names with specific dimensions
     @IBOutlet var restaurantname: UILabel!
     

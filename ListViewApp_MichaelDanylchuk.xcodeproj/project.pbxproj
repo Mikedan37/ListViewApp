@@ -12,6 +12,7 @@
 		7C25A9211E6E7A26005BD149 /* ListViewApp_MichaelDanylchuk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C25A91F1E6E7A26005BD149 /* ListViewApp_MichaelDanylchuk.xcdatamodeld */; };
 		7C42D3981E441A020089F75F /* FoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */; };
 		7C430ABE1E6BA4F10076425B /* ListObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C430ABD1E6BA4F10076425B /* ListObject.swift */; };
+		7C5A53DC1E70CC3700C43637 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A53DB1E70CC3700C43637 /* AddViewController.swift */; };
 		7C802EDD1E42F6C300407515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C802EDC1E42F6C300407515 /* AppDelegate.swift */; };
 		7C802EE21E42F6C300407515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C802EE01E42F6C300407515 /* Main.storyboard */; };
 		7C802EE41E42F6C300407515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C802EE31E42F6C300407515 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		7C25A9201E6E7A26005BD149 /* ListViewApp_MichaelDanylchuk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListViewApp_MichaelDanylchuk.xcdatamodel; sourceTree = "<group>"; };
 		7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListTableViewCell.swift; sourceTree = "<group>"; };
 		7C430ABD1E6BA4F10076425B /* ListObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListObject.swift; sourceTree = "<group>"; };
+		7C5A53DB1E70CC3700C43637 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7C802ED91E42F6C300407515 /* ListViewApp_MichaelDanylchuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListViewApp_MichaelDanylchuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C802EDC1E42F6C300407515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C802EE11E42F6C300407515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				7C25A91F1E6E7A26005BD149 /* ListViewApp_MichaelDanylchuk.xcdatamodeld */,
 				7C430ABD1E6BA4F10076425B /* ListObject.swift */,
 				7C802EE01E42F6C300407515 /* Main.storyboard */,
+				7C5A53DB1E70CC3700C43637 /* AddViewController.swift */,
 				7C07907B1E44371500C7551E /* MyDetailViewController.swift */,
 				7C42D3971E441A020089F75F /* FoodListTableViewCell.swift */,
 				7C802EE31E42F6C300407515 /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 			files = (
 				7C42D3981E441A020089F75F /* FoodListTableViewCell.swift in Sources */,
 				7C802EDD1E42F6C300407515 /* AppDelegate.swift in Sources */,
+				7C5A53DC1E70CC3700C43637 /* AddViewController.swift in Sources */,
 				7C25A9211E6E7A26005BD149 /* ListViewApp_MichaelDanylchuk.xcdatamodeld in Sources */,
 				7C430ABE1E6BA4F10076425B /* ListObject.swift in Sources */,
 				7C802EEF1E42F86500407515 /* FoodListTableView.swift in Sources */,
