@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class AddViewController: UIViewController {
 
     @IBOutlet var AddName: UITextField!
     @IBOutlet var AddPic: UITextField!
+    
+    var newList : ((ListObject) -> ())!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,15 @@ class AddViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func clickedCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func clickedSave(_ sender: Any) {
+        newList(ListObject(letter: "", rname: self.AddName.text!, rimage: UIImage(named: self.AddPic.text!)!, check: false))
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
 

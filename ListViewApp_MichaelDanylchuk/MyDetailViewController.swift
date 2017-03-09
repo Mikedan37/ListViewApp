@@ -15,7 +15,7 @@ class MyDetailViewController: UIViewController {
     @IBOutlet var restaurantdis: UITextView!
     @IBOutlet var names: UILabel!
     
-    var MyDetail : ListObjectMO!
+    var MyDetail : ListObject!
     
     var foodnamelblText : String!
     var foodpicImg: UIImage!
@@ -25,7 +25,7 @@ class MyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.foodnamelbl.text = self.MyDetail.rname
-        self.foodpic.image = UIImage(data: self.MyDetail.rimage as! Data)
+        self.foodpic.image = self.MyDetail.rimage 
         self.restaurantdis.text = self.restaurantdisText
         self.names.text = namesText
         

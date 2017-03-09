@@ -12,26 +12,26 @@ import CoreData
 
 class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetchedResultsControllerDelegate {
     
-    var myList : [ListObjectMO] = []
-//   myList = [(letter: "A", rname: "Adega", rimage: #imageLiteral(resourceName: "Adega"),check: false)
-//        ,(letter: "C",rname: "Cafe Rehoboth",rimage: #imageLiteral(resourceName: "rehoboth"), check: false)
-//        ,(letter: "C",rname: "Cascal" ,rimage: #imageLiteral(resourceName: "cascal"),check: false)
-//        ,(letter: "C",rname: "Chatpatta Corner",rimage: #imageLiteral(resourceName: "chatpattaCorner"),check: false)
-//        ,(letter: "C",rname: "Chef Chus",rimage: #imageLiteral(resourceName: "ChefChu"),check: false)
-//        ,(letter: "C",rname: "Cheesecake Factory",rimage: #imageLiteral(resourceName: "Cheesecake Factory"),check: false)
-//        ,(letter: "C",rname: "Chipotle",rimage: #imageLiteral(resourceName: "Chipotle"),check: false)
-//        ,(letter: "C",rname: "Ciceros",rimage: #imageLiteral(resourceName: "cicerospizzalogo"),check: false)
-//        ,(letter: "C",rname: "Craftman & Wolves",rimage: #imageLiteral(resourceName: "Craftman&Wolves"),check: false)
-//        ,(letter: "D",rname: "De Afghanan",rimage: #imageLiteral(resourceName: "DeAfghanan"),check: false)
-//        ,(letter: "D",rname: "DishDash",rimage: #imageLiteral(resourceName: "DishDash"),check: false)
-//        ,(letter: "E",rname: "Eureka",rimage: #imageLiteral(resourceName: "eureka_logo"),check: false)
-//        ,(letter: "F",rname: "Falafel Stop",rimage: #imageLiteral(resourceName: "FalafelStop"),check: false)
-//        ,(letter: "G",rname: "Gayles",rimage: #imageLiteral(resourceName: "Gayles"),check: false)
-//        ,(letter: "K",rname: "Kula",rimage: #imageLiteral(resourceName: "Kula"), check: false)
-//        ,(letter: "O",rname: "Oren's Humus",rimage: #imageLiteral(resourceName: "oren's humus"), check: false)
-//        ,(letter: "S",rname: "Shadow Brook",rimage: #imageLiteral(resourceName: "shadowbrook"),check: false)
-//        ,(letter: "T",rname: "TajCafe",rimage: #imageLiteral(resourceName: "TajCafe"),check: false)
-//        ,(letter: "T",rname: "Tayyibaat Meat & Grill",rimage: #imageLiteral(resourceName: "tayyibaatmeatandgrill"),check: false)]
+//    var myList : ListObject!
+   var myList = [ListObject(letter: "A", rname: "Adega", rimage: #imageLiteral(resourceName: "Adega"),check: false)
+        ,ListObject(letter: "C",rname: "Cafe Rehoboth",rimage: #imageLiteral(resourceName: "rehoboth"), check: false)
+        ,ListObject(letter: "C",rname: "Cascal" ,rimage: #imageLiteral(resourceName: "cascal"),check: false)
+        ,ListObject(letter: "C",rname: "Chatpatta Corner",rimage: #imageLiteral(resourceName: "chatpattaCorner"),check: false)
+        ,ListObject(letter: "C",rname: "Chef Chus",rimage: #imageLiteral(resourceName: "ChefChu"),check: false)
+        ,ListObject(letter: "C",rname: "Cheesecake Factory",rimage: #imageLiteral(resourceName: "Cheesecake Factory"),check: false)
+        ,ListObject(letter: "C",rname: "Chipotle",rimage: #imageLiteral(resourceName: "Chipotle"),check: false)
+        ,ListObject(letter: "C",rname: "Ciceros",rimage: #imageLiteral(resourceName: "cicerospizzalogo"),check: false)
+        ,ListObject(letter: "C",rname: "Craftman & Wolves",rimage: #imageLiteral(resourceName: "Craftman&Wolves"),check: false)
+        ,ListObject(letter: "D",rname: "De Afghanan",rimage: #imageLiteral(resourceName: "DeAfghanan"),check: false)
+        ,ListObject(letter: "D",rname: "DishDash",rimage: #imageLiteral(resourceName: "DishDash"),check: false)
+        ,ListObject(letter: "E",rname: "Eureka",rimage: #imageLiteral(resourceName: "eureka_logo"),check: false)
+        ,ListObject(letter: "F",rname: "Falafel Stop",rimage: #imageLiteral(resourceName: "FalafelStop"),check: false)
+        ,ListObject(letter: "G",rname: "Gayles",rimage: #imageLiteral(resourceName: "Gayles"),check: false)
+        ,ListObject(letter: "K",rname: "Kula",rimage: #imageLiteral(resourceName: "Kula"), check: false)
+        ,ListObject(letter: "O",rname: "Oren's Humus",rimage: #imageLiteral(resourceName: "oren's humus"), check: false)
+        ,ListObject(letter: "S",rname: "Shadow Brook",rimage: #imageLiteral(resourceName: "shadowbrook"),check: false)
+        ,ListObject(letter: "T",rname: "TajCafe",rimage: #imageLiteral(resourceName: "TajCafe"),check: false)
+        ,ListObject(letter: "T",rname: "Tayyibaat Meat & Grill",rimage: #imageLiteral(resourceName: "tayyibaatmeatandgrill"),check: false)]
 //
     var listDict = [String: [String]]()
     var listSectionTitles = [String()]
@@ -43,9 +43,12 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
     
     
     var searchController : UISearchController!
-    var searchResults : [ListObjectMO] = []
+    var searchResults : [ListObject] = []
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
-    var fetchResultsController : NSFetchedResultsController<ListObjectMO>!
+//    var fetchResultsController : NSFetchedResultsController<ListObject>!
     // Describes the food we like from place
     
     
@@ -56,13 +59,13 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
     }
     func CreateListDict(){
         for list in myList{
-            let listKey = String((list.rname?[(list.rname?.startIndex)!])!)
+            let listKey = String((list.rname[(list.rname.startIndex)]))
             
             if var listValues = listDict[listKey] {
-                listValues.append(list.rname!)
+                listValues.append(list.rname)
             }
             else{
-                listDict[listKey] = [list.rname!]
+                listDict[listKey] = [list.rname]
             }
             
         }
@@ -83,59 +86,60 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.tableView.tableHeaderView = self.searchController.searchBar
+    }
         //pg 45
-        let fetchRequest : NSFetchRequest <ListObjectMO> = ListObjectMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "rname", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let context = appDelegate.persistentContainer.viewContext
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchResultsController.delegate = self
+//        let fetchRequest : NSFetchRequest <ListObject> = ListObject.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "rname", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        
+//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//            let context = appDelegate.persistentContainer.viewContext
+//            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//            fetchResultsController.delegate = self
+//
+//            do{
+//                try fetchResultsController.performFetch()
+//                if let fetchedObjects = fetchResultsController.fetchedObjects{
+//                    myList = fetchedObjects
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        
+//    }
+    
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type{
+//        case.insert:
+//            if let newIndexPath = newIndexPath{
+//                tableView.insertRows(at: [newIndexPath], with: .fade)
+//            }
+//        case.delete:
+//            if let indexPath = indexPath{
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//            }
+//        case .update:
+//            if let indexPath = indexPath{
+//                tableView.reloadRows(at: [indexPath], with: .fade)
+//            }
+//        default:
+//            tableView.reloadData()
+//        }
+//        
+//        if let fetchedObjects = controller.fetchedObjects{
+//            myList = fetchedObjects as! [ListObject]
+//        }
+//    }
+    
+    
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.endUpdates()
 
-            do{
-                try fetchResultsController.performFetch()
-                if let fetchedObjects = fetchResultsController.fetchedObjects{
-                    myList = fetchedObjects
-                }
-            } catch {
-                print(error)
-            }
-        }
-        
-    }
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type{
-        case.insert:
-            if let newIndexPath = newIndexPath{
-                tableView.insertRows(at: [newIndexPath], with: .fade)
-            }
-        case.delete:
-            if let indexPath = indexPath{
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        case .update:
-            if let indexPath = indexPath{
-                tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-        default:
-            tableView.reloadData()
-        }
-        
-        if let fetchedObjects = controller.fetchedObjects{
-            myList = fetchedObjects as! [ListObjectMO]
-        }
-    }
-    
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -173,7 +177,7 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
         let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifier, for: indexPath) as! FoodListTableViewCell
         
         
-        var cellItem : ListObjectMO
+        var cellItem : ListObject
         
         
         if searchController.isActive{
@@ -184,14 +188,14 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
         }
         
         cell.restaurantname?.text = cellItem.rname
-        cell.restaurantpic?.layer.cornerRadius = (UIImage(data: cellItem.rimage as! Data)?.size.width)!/80.0
+        cell.restaurantpic?.layer.cornerRadius = cellItem.rimage.size.width/80.0
         cell.restaurantpic?.clipsToBounds = true
         cell.restaurantpic?.layer.masksToBounds = true
         
         
         cell.alpha = 0
         UIView.animate(withDuration: 2, animations: { cell.alpha = 1 })
-        cell.restaurantpic?.image = UIImage(data: cellItem.rimage as! Data)
+        cell.restaurantpic?.image = cellItem.rimage
         
         var rotationTransform : CATransform3D = CATransform3DIdentity
         rotationTransform = CATransform3DTranslate(rotationTransform, -250,-250,0)
@@ -222,19 +226,19 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
                 
                 
             }
-//            else if segue.identifier == "AddNewItem"{
-//                let addVC.newlist = addData
-//            }
-            
         }
+            else if segue.identifier == "AddNewList"{
+                let addVC = segue.destination as! AddViewController
+            addVC.newList = addData
+            }
     }
     func addData(newItem : ListObject){
         myList.append(newItem)
     }
 
     func filterContentForSearchText(searchText: String) {
-        searchResults = myList.filter({ (listItem : ListObjectMO) -> Bool in
-            let nameMatch = listItem.rname?.range(of: searchText, options: String.CompareOptions.caseInsensitive)
+        searchResults = myList.filter({ (listItem : ListObject) -> Bool in
+            let nameMatch = listItem.rname.range(of: searchText, options: String.CompareOptions.caseInsensitive)
             return nameMatch != nil
    })
 }
@@ -243,21 +247,21 @@ class FoodListTableView: UITableViewController, UISearchResultsUpdating, NSFetch
             filterContentForSearchText(searchText: textToSearch)
             tableView.reloadData()
         }
-        
     }
+        
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             
-            
-            if let AppDelegate = (UIApplication.shared.delegate as? AppDelegate){
-                let context = AppDelegate.persistentContainer.viewContext
-                let itemToDelete = self.fetchResultsController.object(at: indexPath)
-                context.delete(itemToDelete)
-                AppDelegate.saveContext()
-                }
+//            
+//            if let AppDelegate = (UIApplication.shared.delegate as? AppDelegate){
+//                let context = AppDelegate.persistentContainer.viewContext
+//                let itemToDelete = self.fetchResultsController.object(at: indexPath)
+//                context.delete(itemToDelete)
+//                AppDelegate.saveContext()
+//                }
         }
         }
+
 
 }
-
 

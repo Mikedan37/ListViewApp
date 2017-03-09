@@ -52,7 +52,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Restaurant List" id="9nh-Q7-AuV">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="zlC-rV-kgN"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="zlC-rV-kgN">
+                            <connections>
+                                <segue destination="1O1-dY-di0" kind="presentation" identifier="AddNewList" id="BLd-Lf-aut"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0V-ae-D1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,11 +182,17 @@
                                 <rect key="frame" x="78" y="318" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="clickedCancel:" destination="1O1-dY-di0" eventType="touchUpInside" id="yAp-v7-7Qc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKl-hN-gzl">
                                 <rect key="frame" x="237" y="318" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="clickedSave:" destination="1O1-dY-di0" eventType="touchUpInside" id="ozq-eY-Jie"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
